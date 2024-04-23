@@ -1,0 +1,17 @@
+commit 8bd2adb2eca2f15d348148f3a0b6ff401ced0440
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Mon Apr 22 21:53:39 2024 -0500
+
+    first commit v2 - node 20.12.2
+
+commit 1d5d1c4bf6b74fb168c6f60e8e3336e0b1492c6d
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Mon Apr 22 18:01:20 2024 -0500
+
+    first commit - node 20.12.2
+
+commit 6137b16d8ddb56713d1986a50a7fa7e111c6d548
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Fri Apr 19 16:31:56 2024 -0500
+
+    Initialize project using Create React App
