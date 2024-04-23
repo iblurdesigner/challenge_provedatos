@@ -14,6 +14,9 @@ function App() {
   const [observaciones,setObserv] = useState('')
   const [foto,setFoto] = useState('')
 
+  // necesito tener la lista de empleados en el estado
+  const [empleadosList,setEmpleados] = useState([])
+
   // este metodo va a enviar los datos a la base de datos
   const agregar = () => {
     Axios.post("http://localhost:3001/create",{
@@ -27,9 +30,20 @@ function App() {
       foto
     })
     .then(()=>{
+      getEmpleados()
       alert("Empleado registrado con exito")
     })
   }
+
+  // metodo para hacer la consulta sql de los empleados
+  const getEmpleados = () => {
+    Axios.get("http://localhost:3001/empleados")
+    .then((response)=>{
+      setEmpleados(response.data)
+    })
+  }
+
+
 
   return (
     <div className="App">
@@ -68,6 +82,27 @@ function App() {
         </label>
 
         <button onClick={agregar}>Guardar</button>
+
+        <div className='lista'>
+          <button onClick={getEmpleados}>Mostrar</button>
+
+          {
+            empleadosList.map((empleado,key)=>{
+              return(
+                <div key={empleado.id}>
+                  <p>{empleado.nombres}</p>
+                  <p>{empleado.apellidos}</p>
+                  <p>{empleado.cedula}</p>
+                  <p>{empleado.provincia}</p>
+                  <p>{empleado.f_nacimiento}</p>
+                  <p>{empleado.email}</p>
+                  <p>{empleado.observaciones}</p>
+                  <p>{empleado.url_foto}</p>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   );
