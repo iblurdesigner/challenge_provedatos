@@ -36,6 +36,18 @@ app.post("/create", (req, res) => {
   });
 })
 
+// con esta peticion voy a mostrar los datos de los empleados
+app.get("/empleados", (req, res) => {
+  db.query('SELECT * FROM empleados',
+  (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+})
+
 //el servidor escucha en el puerto 3001
 app.listen(3001, () => {
   console.log("Server is running on port 3001")
