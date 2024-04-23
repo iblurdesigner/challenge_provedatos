@@ -1,23 +1,41 @@
 import './App.css';
 import { useState } from 'react';
+import Axios from 'axios'
+
 
 function App() {
 
-  const [nombre,setNombre] = useState('')
+  const [nombres,setNombre] = useState('')
   const [apellidos,setApellidos] = useState('')
   const [cedula,setCedula] = useState(0)
   const [provincia,setProvincia] = useState('')
   const [nacimiento,setNacimiento] = useState('')
   const [email,setEmail] = useState('')
   const [observaciones,setObserv] = useState('')
+  const [foto,setFoto] = useState('')
 
-  const mostrarDatos = () => { alert(nombre) }
+  // este metodo va a enviar los datos a la base de datos
+  const agregar = () => {
+    Axios.post("http://localhost:3001/create",{
+      nombres,
+      apellidos,
+      cedula,
+      provincia,
+      nacimiento,
+      email,
+      observaciones,
+      foto
+    })
+    .then(()=>{
+      alert("Empleado registrado con exito")
+    })
+  }
 
   return (
     <div className="App">
       <div className="datos">
         <label>Nombres
-          <input type="text" name="nombre"
+          <input type="text" name="nombres"
             onChange={(e) => setNombre(e.target.value)} />
         </label>
         <label>Apellidos
@@ -44,8 +62,12 @@ function App() {
           <input type="text" name="observaciones" 
             onChange={(e) => setObserv(e.target.value)} />
         </label>
+        <label>Foto
+          <input type="text" name="foto" 
+            onChange={(e) => setFoto(e.target.value)} />
+        </label>
 
-        <button onClick={mostrarDatos}>Guardar</button>
+        <button onClick={agregar}>Guardar</button>
       </div>
     </div>
   );
