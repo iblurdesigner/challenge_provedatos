@@ -27,3 +27,11 @@
   height: 50px;
   margin-top: 5px;
 }
+
+.pxl-5 {
+  padding-left: 5px;
+}
+
+.pxr-5 {
+  padding-right: 5px;
+}
