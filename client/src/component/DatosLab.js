@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Axios from 'axios'
-import {Container, Row, Tabs, Tab} from 'react-bootstrap';
+import {Container, Form, Row, Tabs, Tab} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './tabStyle.css'
 
@@ -58,13 +58,13 @@ const DatosLab = () => {
                 <div className='input-group mb-3'>
                   <span className="input-group-text" id="basic-addon1">Nombres</span>
                   <input type="text" name="nombres"
-                  className="form-control" placeholder="Nombres" aria-label="Nombres" aria-describedby="basic-addon1"
+                  className="form-control" placeholder="Dos nombres" aria-label="Nombres" aria-describedby="basic-addon1"
                     onChange={(e) => setNombre(e.target.value)}
                   />
 
                   <span className="input-group-text" id="basic-addon1">Apellidos</span>
                   <input type="text" name="apellidos"
-                  className="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"
+                  className="form-control" placeholder="Dos apellidos" aria-label="Apellidos" aria-describedby="basic-addon1"
                   onChange={(e) => setApellidos(e.target.value)}
                   />
                 </div>
@@ -93,9 +93,9 @@ const DatosLab = () => {
                   onChange={(e) => setNacimiento(e.target.value)}
                   />
 
-                  <span className="input-group-text" id="basic-addon1">Email</span>
+                  <span className="input-group-text" id="basic-addon1">Email (válido)</span>
                   <input type="email" name="provincia"
-                  className="form-control" placeholder="Debe ser válido" aria-label="Email" aria-describedby="basic-addon1"
+                  className="form-control" placeholder="correo-personal@email.com" aria-label="Email" aria-describedby="basic-addon1"
                   onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
@@ -103,16 +103,14 @@ const DatosLab = () => {
                 
                 <div className='input-group mb-3'>
                   <span className="input-group-text" id="basic-addon1">Observaciones</span>
-                  <input type="text" name="observaciones"
-                  className="form-control" placeholder="Ingrese un comentario del empleado" aria-label="observaciones" aria-describedby="basic-addon1"
-                  onChange={(e) => setObserv(e.target.value)}
-                  />
+                  <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA PERSONAL">  
+                  </textarea>
 
-                  <span className="input-group-text" id="basic-addon1">Foto</span>
-                  <input type="text" name="foto"
-                  className="form-control" placeholder="Debe ser válido" aria-label="Foto" aria-describedby="basic-addon1"
-                  onChange={(e) => setFoto(e.target.value)}
-                  />
+                  <div className="input-group mt-3">
+                    <label className="input-group-text" for="inputGroupFile01">Fotografía</label>
+                    <input type="file" className="form-control" id="inputGroupFile01"
+                    onClick={(e) => setFoto(e.target.value)} />
+                  </div>
                 </div>
               </div> 
             </Tab>
@@ -133,6 +131,59 @@ const DatosLab = () => {
                   onChange={(e) => setApellidos(e.target.value)}
                   />
                 </div>
+
+                <div className='input-group mb-3'>
+                  <span className="input-group-text" id="basic-addon1">Departamento</span>
+                  <input type="text" name="departamento"
+                  className="form-control" placeholder="Ingrese el departamento" aria-label="departamento" aria-describedby="basic-addon1"
+                  onChange={(e) => setCedula(e.target.value)}
+                  />
+
+                  <span className="input-group-text" id="basic-addon1">Provincia</span>
+                  <input type="text" name="provincia"
+                  className="form-control" placeholder="Provincia" aria-label="Provincia" aria-describedby="basic-addon1"
+                  onChange={(e) => setProvincia(e.target.value)}
+                  />
+                </div>
+
+
+                <div className='row align-items-start'>
+                  <div className='col'>
+                    <div className='d-flex flex-row'> 
+                      <span className="input-group-text">Sueldo</span>
+                      <input type="number" name="sueldo"
+                      className="form-control w-100" placeholder="0000.00" aria-label="sueldo"
+                      onChange={(e) => setCedula(e.target.value)}
+                      />
+                      <span className="input-group-text w-auto">USD</span>
+                    </div>
+                  </div>
+
+                  <div className='col w-50'>
+                    <div className="text-start w-100" id="basic-addon1">Jornada Parcial</div>
+                    <div className='form-check text-start w-100'>
+                      <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                      onClick={(e) => setProvincia(e.target.value)} />
+                      <label className="form-check-label" for="flexRadioDefault1">
+                        Si
+                      </label>
+                    </div>
+                    <div className='form-check text-start w-100' >
+                      <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      onClick={(e) => setProvincia(e.target.value)} />
+                      <label className="form-check-label" for="flexRadioDefault2">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className='input-group'>
+                  <span className="input-group-text" id="basic-addon1">Observaciones</span>
+                  <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA LABORAL"></textarea>
+                </div>
+
               </div> 
             </Tab>
           </Tabs>

@@ -1,3 +1,28 @@
+commit dab4aa2307b38754c790f0b302a852a07b36aba4
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Tue Apr 23 20:48:42 2024 -0500
+
+    tabs - refactor
+
+commit 610f0985eeb775122242fe6865aac466afd8b40b
+Merge: 9991933 ce0c699
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Tue Apr 23 10:47:26 2024 -0500
+
+    listando los empleados de la BD
+
+commit ce0c699da1e65dca8197b81e5ec3f71b644b0dcc
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Tue Apr 23 10:45:31 2024 -0500
+
+    listar empleados
+
+commit 9991933b4b2cf8d46d8f90ae65e405a393b8b2ce
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Mon Apr 22 22:32:30 2024 -0500
+
+    adding log commits
+
 commit 1f0793c2697886794831ea1a0253f24d942185e9
 Author: iblurdesigner <nevomen@gmail.com>
 Date:   Mon Apr 22 22:26:27 2024 -0500
