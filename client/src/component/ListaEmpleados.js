@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { DataListContext } from '../contexts/dataListContext';
+import { Table } from 'react-bootstrap';
 
 const ListaEmpleados = () => {
   // obtengo la lista de empleados desde el contexto
@@ -7,71 +8,50 @@ const ListaEmpleados = () => {
 
   return (
     <div className="py-4 mx-5">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombres</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Cédula</th>
-            <th scope="col">Provincia</th>
-            <th scope="col">Fecha de Nacimiento</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Observaciones Personales</th>
-            <th scope="col">Fecha de Ingreso</th>
-            <th scope="col">Cargo</th>
-            <th scope="col">Departamento</th>
-            <th scope="col">Provincia laboral</th>
-            <th scope="col">Sueldo</th>
-            <th scope="col">Jornada</th>
-            <th scope="col">Observaciones Laborales</th>
-          </tr>
-        </thead>
-        <tbody>
-        <div className='lista'>
-        {
-          empleadosList.map((empleado,key)=>{
-            return(
-              <div key={empleado.id}>
-                <p>{empleado.nombres}</p>
-                <p>{empleado.apellidos}</p>
-                <p>{empleado.cedula}</p>
-                <p>{empleado.provincia}</p>
-                <p>{empleado.f_nacimiento}</p>
-                <p>{empleado.email}</p>
-                <p>{empleado.observaciones}</p>
-                <p>{empleado.url_foto}</p>
-                <p>{empleado.ingreso}</p>
-                <p>{empleado.cargo}</p>
-                <p>{empleado.departamento}</p>
-                <p>{empleado.provilab}</p>
-                <p>{empleado.sueldo}</p>
-                <p>{empleado.jornada}</p>
-                <p>{empleado.observlab}</p>
-              </div>
-            )
-          })
-        }
-      </div>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+      <Table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombres</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Cédula</th>
+              <th scope="col">Provincia</th>
+              <th scope="col">Fecha de Nacimiento</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Observaciones Personales</th>
+              <th scope="col">Fecha de Ingreso</th>
+              <th scope="col">Cargo</th>
+              <th scope="col">Departamento</th>
+              <th scope="col">Provincia laboral</th>
+              <th scope="col">Sueldo</th>
+              <th scope="col">Jornada</th>
+              <th scope="col">Observaciones Laborales</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              empleadosList.map((empleado,key)=>{
+                return <tr key={empleado.id}>
+                          <th>{empleado.id}</th>
+                          <td>{empleado.nombres}</td>
+                          <td>{empleado.apellidos}</td>
+                          <td>{empleado.cedula}</td>
+                          <td>{empleado.provincia}</td>
+                          <td>{empleado.f_nacimiento}</td>
+                          <td>{empleado.email}</td>
+                          <td>{empleado.observaciones}</td>
+                          <td>{empleado.ingreso}</td>
+                          <td>{empleado.cargo}</td>
+                          <td>{empleado.departamento}</td>
+                          <td>{empleado.provilab}</td>
+                          <td>{empleado.sueldo}</td>
+                          <td>{empleado.jornada}</td>
+                          <td>{empleado.observlab}</td>
+                        </tr>
+              })
+            }          
         </tbody>
-      </table>
+      </Table>
     </div>  
   )
 }

@@ -1,13 +1,11 @@
 import { useContext, useState } from 'react';
 import { DataListContext } from '../contexts/dataListContext';
-import Axios from 'axios'
 import {Container, Tabs, Tab} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import Axios from 'axios';
 
 const DatosLab = () => {
-  const getEmpleados = useContext(DataListContext);
+  const {getEmpleados} = useContext(DataListContext);
 
   const [nombres,setNombre] = useState('')
   const [apellidos,setApellidos] = useState('')
@@ -25,8 +23,7 @@ const DatosLab = () => {
   const [jornada,setJornada] = useState('')
   const [observLab,setObservLab] = useState('')
 
-  // // necesito tener la lista de empleados en el estado
-  // const [empleadosList,setEmpleados] = useState([])
+  
 
   // este metodo va a enviar los datos a la base de datos
   const agregar = () => {
@@ -52,19 +49,11 @@ const DatosLab = () => {
     })
   }
 
-  // // metodo para hacer la consulta sql de los empleados
-  // const getEmpleados = () => {
-  //   Axios.get("http://localhost:3001/empleados")
-  //   .then((response)=>{
-  //     setEmpleados(response.data)
-  //   })
-  // }
-
 
   return (
     <Container className='py-4'>
         <div className="card text-center">
-          <div class="card-header">
+          <div className="card-header">
             CREAR EMPLEADO NUEVO
           </div>
 
