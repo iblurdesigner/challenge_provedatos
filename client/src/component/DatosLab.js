@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { DataListContext } from '../contexts/dataListContext';
 import Axios from 'axios'
-import {Container, Form, Row, Tabs, Tab} from 'react-bootstrap';
+import {Container, Tabs, Tab} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './tabStyle.css'
+
 
 
 const DatosLab = () => {
+  const getEmpleados = useContext(DataListContext);
+
   const [nombres,setNombre] = useState('')
   const [apellidos,setApellidos] = useState('')
   const [cedula,setCedula] = useState(0)
@@ -22,8 +25,8 @@ const DatosLab = () => {
   const [jornada,setJornada] = useState('')
   const [observLab,setObservLab] = useState('')
 
-  // necesito tener la lista de empleados en el estado
-  const [empleadosList,setEmpleados] = useState([])
+  // // necesito tener la lista de empleados en el estado
+  // const [empleadosList,setEmpleados] = useState([])
 
   // este metodo va a enviar los datos a la base de datos
   const agregar = () => {
@@ -45,18 +48,17 @@ const DatosLab = () => {
       observLab
     })
     .then(()=>{
-      getEmpleados()
       alert("Empleado registrado con exito")
     })
   }
 
-  // metodo para hacer la consulta sql de los empleados
-  const getEmpleados = () => {
-    Axios.get("http://localhost:3001/empleados")
-    .then((response)=>{
-      setEmpleados(response.data)
-    })
-  }
+  // // metodo para hacer la consulta sql de los empleados
+  // const getEmpleados = () => {
+  //   Axios.get("http://localhost:3001/empleados")
+  //   .then((response)=>{
+  //     setEmpleados(response.data)
+  //   })
+  // }
 
 
   return (
@@ -178,14 +180,14 @@ const DatosLab = () => {
                     <div className="text-start w-100" id="basic-addon1">Jornada Parcial</div>
                     <div className='form-check text-start w-100'>
                       <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                      onClick={(e) => setJornada(e.target.value='Si')} />
+                      onClick={(e) => setJornada(e.target.value='Parcial')} />
                       <label className="form-check-label" for="flexRadioDefault1">
                         Si
                       </label>
                     </div>
                     <div className='form-check text-start w-100' >
                       <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                      onClick={(e) => setJornada(e.target.value='No')} />
+                      onClick={(e) => setJornada(e.target.value='Completa')} />
                       <label className="form-check-label" for="flexRadioDefault2">
                         No
                       </label>
@@ -207,37 +209,13 @@ const DatosLab = () => {
 
           <div className='card-footer text-body-secondary'>
             <button className='btn btn-success' onClick={agregar}>Guardar</button>
-            <button onClick={getEmpleados}>Mostrar</button>
+            <button onClick={getEmpleados}>Reporte</button>
           </div>
 
         </div>
     
 
-      <div className='lista'>
-        {
-          empleadosList.map((empleado,key)=>{
-            return(
-              <div key={empleado.id}>
-                <p>{empleado.nombres}</p>
-                <p>{empleado.apellidos}</p>
-                <p>{empleado.cedula}</p>
-                <p>{empleado.provincia}</p>
-                <p>{empleado.f_nacimiento}</p>
-                <p>{empleado.email}</p>
-                <p>{empleado.observaciones}</p>
-                <p>{empleado.url_foto}</p>
-                <p>{empleado.ingreso}</p>
-                <p>{empleado.cargo}</p>
-                <p>{empleado.departamento}</p>
-                <p>{empleado.provilab}</p>
-                <p>{empleado.sueldo}</p>
-                <p>{empleado.jornada}</p>
-                <p>{empleado.observlab}</p>
-              </div>
-            )
-          })
-        }
-      </div>
+      
     </Container>  
   );
 }
