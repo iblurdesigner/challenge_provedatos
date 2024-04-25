@@ -14,6 +14,11 @@ const DatosLab = () => {
   const [email,setEmail] = useState('')
   const [observaciones,setObserv] = useState('')
   const [foto,setFoto] = useState('')
+  const [ingreso,setIngreso] = useState('')
+  const [cargo,setCargo] = useState('')
+  const [departamento,setDepar] = useState('')
+  const [sueldo,setSueldo] = useState('')
+  const [jornada,setJornada] = useState('')
 
   // necesito tener la lista de empleados en el estado
   const [empleadosList,setEmpleados] = useState([])
@@ -103,7 +108,8 @@ const DatosLab = () => {
                 
                 <div className='input-group mb-3'>
                   <span className="input-group-text" id="basic-addon1">Observaciones</span>
-                  <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA PERSONAL">  
+                  <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA PERSONAL"
+                  onChange={(e) => setObserv(e.target.value)} > 
                   </textarea>
 
                   <div className="input-group mt-3">
@@ -119,16 +125,16 @@ const DatosLab = () => {
             <Tab eventKey="tab-2" title="Datos Laborales">
               <div className='card-body'>
                 <div className='input-group mb-3'>
-                  <span className="input-group-text" id="basic-addon1">Feche Ingreso</span>
+                  <span className="input-group-text" id="basic-addon1">Fecha de Ingreso</span>
                   <input type="date" name="ingreso"
                   className="form-control" placeholder="Nombres" aria-label="Nombres" aria-describedby="basic-addon1"
-                    onChange={(e) => setNombre(e.target.value)}
+                    onChange={(e) => setIngreso(e.target.value)}
                   />
 
                   <span className="input-group-text" id="basic-addon1">Cargo</span>
                   <input type="text" name="cargo"
                   className="form-control" placeholder="Cardo del empleado" aria-label="Cargo" aria-describedby="basic-addon1"
-                  onChange={(e) => setApellidos(e.target.value)}
+                  onChange={(e) => setCargo(e.target.value)}
                   />
                 </div>
 
@@ -136,7 +142,7 @@ const DatosLab = () => {
                   <span className="input-group-text" id="basic-addon1">Departamento</span>
                   <input type="text" name="departamento"
                   className="form-control" placeholder="Ingrese el departamento" aria-label="departamento" aria-describedby="basic-addon1"
-                  onChange={(e) => setCedula(e.target.value)}
+                  onChange={(e) => setDepar(e.target.value)}
                   />
 
                   <span className="input-group-text" id="basic-addon1">Provincia</span>
@@ -153,7 +159,7 @@ const DatosLab = () => {
                       <span className="input-group-text">Sueldo</span>
                       <input type="number" name="sueldo"
                       className="form-control w-100" placeholder="0000.00" aria-label="sueldo"
-                      onChange={(e) => setCedula(e.target.value)}
+                      onChange={(e) => setSueldo(e.target.value)}
                       />
                       <span className="input-group-text w-auto">USD</span>
                     </div>
@@ -163,14 +169,14 @@ const DatosLab = () => {
                     <div className="text-start w-100" id="basic-addon1">Jornada Parcial</div>
                     <div className='form-check text-start w-100'>
                       <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                      onClick={(e) => setProvincia(e.target.value)} />
+                      onClick={(e) => setJornada(e.target.value)} />
                       <label className="form-check-label" for="flexRadioDefault1">
                         Si
                       </label>
                     </div>
                     <div className='form-check text-start w-100' >
                       <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                      onClick={(e) => setProvincia(e.target.value)} />
+                      onClick={(e) => setJornada(e.target.value)} />
                       <label className="form-check-label" for="flexRadioDefault2">
                         No
                       </label>
@@ -181,7 +187,8 @@ const DatosLab = () => {
 
                 <div className='input-group'>
                   <span className="input-group-text" id="basic-addon1">Observaciones</span>
-                  <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA LABORAL"></textarea>
+                  <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA LABORAL"
+                   onChange={(e) => setObserv(e.target.value)}></textarea>
                 </div>
 
               </div> 
