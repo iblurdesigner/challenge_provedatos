@@ -25,8 +25,15 @@ app.post("/create", (req, res) => {
   const email = req.body.email;
   const observaciones = req.body.observaciones;
   const url_foto = req.body.foto;
+  const ingreso = req.body.ingreso;
+  const cargo = req.body.cargo;
+  const departamento = req.body.departamento;
+  const provilab = req.body.proviLab;
+  const sueldo = req.body.sueldo;
+  const jornada = req.body.jornada;
+  const observlab = req.body.observLab;
 
-  db.query('INSERT INTO empleados(nombres,apellidos,cedula,provincia,f_nacimiento,email,observaciones,url_foto) VALUES(?,?,?,?,?,?,?,?)', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto],
+  db.query('INSERT INTO empleados(nombres,apellidos,cedula,provincia,f_nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab],
   (err, result) => {
     if (err) {
       console.log(err);

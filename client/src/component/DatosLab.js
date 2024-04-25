@@ -17,8 +17,10 @@ const DatosLab = () => {
   const [ingreso,setIngreso] = useState('')
   const [cargo,setCargo] = useState('')
   const [departamento,setDepar] = useState('')
+  const [proviLab,setProviLab] = useState('')
   const [sueldo,setSueldo] = useState('')
   const [jornada,setJornada] = useState('')
+  const [observLab,setObservLab] = useState('')
 
   // necesito tener la lista de empleados en el estado
   const [empleadosList,setEmpleados] = useState([])
@@ -33,7 +35,14 @@ const DatosLab = () => {
       nacimiento,
       email,
       observaciones,
-      foto
+      foto,
+      ingreso,
+      cargo,
+      departamento,
+      proviLab,
+      sueldo,
+      jornada,
+      observLab
     })
     .then(()=>{
       getEmpleados()
@@ -133,7 +142,7 @@ const DatosLab = () => {
 
                   <span className="input-group-text" id="basic-addon1">Cargo</span>
                   <input type="text" name="cargo"
-                  className="form-control" placeholder="Cardo del empleado" aria-label="Cargo" aria-describedby="basic-addon1"
+                  className="form-control" placeholder="Cargo del empleado" aria-label="Cargo" aria-describedby="basic-addon1"
                   onChange={(e) => setCargo(e.target.value)}
                   />
                 </div>
@@ -148,7 +157,7 @@ const DatosLab = () => {
                   <span className="input-group-text" id="basic-addon1">Provincia</span>
                   <input type="text" name="provincia"
                   className="form-control" placeholder="Provincia" aria-label="Provincia" aria-describedby="basic-addon1"
-                  onChange={(e) => setProvincia(e.target.value)}
+                  onChange={(e) => setProviLab(e.target.value)}
                   />
                 </div>
 
@@ -169,14 +178,14 @@ const DatosLab = () => {
                     <div className="text-start w-100" id="basic-addon1">Jornada Parcial</div>
                     <div className='form-check text-start w-100'>
                       <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                      onClick={(e) => setJornada(e.target.value)} />
+                      onClick={(e) => setJornada(e.target.value='Si')} />
                       <label className="form-check-label" for="flexRadioDefault1">
                         Si
                       </label>
                     </div>
                     <div className='form-check text-start w-100' >
                       <input className='form-check-input' type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                      onClick={(e) => setJornada(e.target.value)} />
+                      onClick={(e) => setJornada(e.target.value='No')} />
                       <label className="form-check-label" for="flexRadioDefault2">
                         No
                       </label>
@@ -188,7 +197,7 @@ const DatosLab = () => {
                 <div className='input-group'>
                   <span className="input-group-text" id="basic-addon1">Observaciones</span>
                   <textarea className="form-control" aria-label="With textarea" name="observaciones" placeholder="Comentario u observación referente a la FICHA LABORAL"
-                   onChange={(e) => setObserv(e.target.value)}></textarea>
+                   onChange={(e) => setObservLab(e.target.value)}></textarea>
                 </div>
 
               </div> 
@@ -217,6 +226,13 @@ const DatosLab = () => {
                 <p>{empleado.email}</p>
                 <p>{empleado.observaciones}</p>
                 <p>{empleado.url_foto}</p>
+                <p>{empleado.ingreso}</p>
+                <p>{empleado.cargo}</p>
+                <p>{empleado.departamento}</p>
+                <p>{empleado.provilab}</p>
+                <p>{empleado.sueldo}</p>
+                <p>{empleado.jornada}</p>
+                <p>{empleado.observlab}</p>
               </div>
             )
           })
