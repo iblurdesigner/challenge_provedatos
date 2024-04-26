@@ -55,6 +55,35 @@ app.get("/empleados", (req, res) => {
   });
 })
 
+
+app.put("/update", (req, res) => {
+  const id = req.body.id;
+  const nombres = req.body.nombres;
+  const apellidos = req.body.apellidos;
+  const cedula = req.body.cedula;
+  const provincia = req.body.provincia;
+  const nacimiento = req.body.nacimiento;
+  const email = req.body.email;
+  const observaciones = req.body.observaciones;
+  const url_foto = req.body.foto;
+  const ingreso = req.body.ingreso;
+  const cargo = req.body.cargo;
+  const departamento = req.body.departamento;
+  const provilab = req.body.proviLab;
+  const sueldo = req.body.sueldo;
+  const jornada = req.body.jornada;
+  const observlab = req.body.observLab;
+
+  db.query('UPDATE empleados SET nombres = ?, apellidos = ?, cedula = ?, provincia = ?, f_nacimiento = ?, email = ?, observaciones = ?, url_foto = ?, ingreso = ?, cargo = ?, departamento = ?, provilab = ?, sueldo = ?, jornada = ?, observlab = ? WHERE id = ?', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab,id],
+  (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("Empleado actualizado con éxito!");
+    }
+  });
+})
+
 //el servidor escucha en el puerto 3001
 app.listen(3001, () => {
   console.log("Server is running on port 3001")

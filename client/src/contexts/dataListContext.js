@@ -4,8 +4,73 @@ import Axios from "axios";
 export const DataListContext = createContext()
 
 export function DataContextProvider(props) {
-  // necesito tener la lista de empleados en el estado
+  const [editar,setEditar] = useState(false)
+  
+  // necesito tener la lista de empleados en el estado, para ello creamos un useEffect y hacemos el fetch
   const [empleadosList,setEmpleados] = useState([])
+  
+  const [id,setId] = useState('')
+  const [nombres,setNombre] = useState('')
+  const [apellidos,setApellidos] = useState('')
+  const [cedula,setCedula] = useState(0)
+  const [provincia,setProvincia] = useState('')
+  const [nacimiento,setNacimiento] = useState('')
+  const [email,setEmail] = useState('')
+  const [observaciones,setObserv] = useState('')
+  const [foto,setFoto] = useState('')
+  const [ingreso,setIngreso] = useState('')
+  const [cargo,setCargo] = useState('')
+  const [departamento,setDepar] = useState('')
+  const [proviLab,setProviLab] = useState('')
+  const [sueldo,setSueldo] = useState('')
+  const [jornada,setJornada] = useState('')
+  const [observLab,setObservLab] = useState('')
+
+
+  // este metodo va a enviar los datos a la base de datos
+  const agregar = () => {
+    Axios.post("http://localhost:3001/create",{
+      nombres,
+      apellidos,
+      cedula,
+      provincia,
+      nacimiento,
+      email,
+      observaciones,
+      foto,
+      ingreso,
+      cargo,
+      departamento,
+      proviLab,
+      sueldo,
+      jornada,
+      observLab
+    })
+    .then(()=>{
+      alert("Empleado registrado con exito")
+    })
+  }
+
+  const editarEmpleado = (val) => {
+    setEditar(true)
+    
+    setId(val.id)
+    setNombre(val.nombres)
+    setApellidos(val.apellidos)
+    setCedula(val.cedula)
+    setProvincia(val.provincia)
+    setNacimiento(val.nacimiento)
+    setEmail(val.email)
+    setObserv(val.observaciones)
+    setFoto(val.foto)
+    setIngreso(val.ingreso)
+    setCargo(val.cargo)
+    setDepar(val.departamento)
+    setProviLab(val.provilab)
+    setSueldo(val.sueldo)
+    setJornada(val.jornada)
+    setObservLab(val.observlab)
+  }
 
   useEffect(() => {
     Axios.get("http://localhost:3001/empleados")
@@ -23,9 +88,31 @@ export function DataContextProvider(props) {
   }
 
   const valor = {
+    agregar,
+    editarEmpleado,
     empleadosList,
+    getEmpleados,
     setEmpleados,
-    getEmpleados
+    setNombre,
+    setApellidos,setCedula, setProvincia, setNacimiento, setEmail, setObserv, setFoto, setIngreso, setCargo, setDepar, setProviLab, setSueldo, setJornada, setObservLab,
+    editar,
+    setEditar,
+    id,
+    nombres,
+    apellidos,
+    cedula,
+    provincia,
+    nacimiento,
+    email,
+    observaciones,
+    foto,
+    ingreso,
+    cargo,
+    departamento,
+    proviLab,
+    sueldo,
+    jornada,
+    observLab
   }
   return (
     <DataListContext.Provider value={valor}>
