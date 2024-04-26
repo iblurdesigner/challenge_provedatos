@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import Axios from "axios";
+import Swal from 'sweetalert2'
 
 export const DataListContext = createContext()
 
@@ -47,8 +48,13 @@ export function DataContextProvider(props) {
       observLab
     })
     .then(()=>{
-      alert("Empleado registrado con exito")
       limpiarCampos()
+      Swal.fire({
+        title: '<strong>Registro exitoso!</strong>',
+        html:"<i>El empleado <strong>" + nombres + "</strong> fue registrado con éxito!!!</i>",
+        icon: 'success',
+        timer: 3000
+      })
     })
   }
 
@@ -74,7 +80,12 @@ export function DataContextProvider(props) {
     })
     .then(()=>{
       getEmpleados()
-      alert("Empleado actualizado con éxito!")
+      Swal.fire({
+        title: '<strong>Registro actualizado</strong>',
+        html:"<i>El empleado <strong>" + nombres + "</strong> fue actualizado con éxito!!!</i>",
+        icon: 'success',
+        timer: 3000
+      })
       limpiarCampos()
     })
   }
