@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const DatosLab = () => {
-  const {getEmpleados, setNombre, setApellidos, setCargo, setCedula, setDepar, setEmail, setFoto, setIngreso, setJornada, setNacimiento, setObserv, setObservLab, setProvincia, setProviLab,setSueldo, agregar, nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,foto,ingreso,cargo,departamento,proviLab,sueldo,jornada,observLab} = useContext(DataListContext);
+  const {getEmpleados, setNombre, setApellidos, setCargo, setCedula, setDepar, setEmail, setFoto, setIngreso, setJornada, setNacimiento, setObserv, setObservLab, setProvincia, setProviLab,setSueldo, agregar, nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,foto,ingreso,cargo,departamento,proviLab,sueldo,jornada,observLab, editar, update, limpiarCampos} = useContext(DataListContext);
 
   return (
     <Container className='py-4'>
@@ -154,7 +154,14 @@ const DatosLab = () => {
 
 
           <div className='card-footer text-body-secondary'>
-            <button className='btn btn-success' onClick={agregar}>Guardar</button>
+            {
+              editar ? 
+              <>
+                <button className='btn btn-warning' onClick={update}>Actualizar</button>
+                <button className='btn btn-info m-4' onClick={limpiarCampos}>Cancelar</button>
+              </>
+                : <button className='btn btn-success' onClick={agregar}>Guardar</button> 
+            }
             <button onClick={getEmpleados}>Reporte</button>
           </div>
 

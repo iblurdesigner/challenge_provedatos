@@ -48,9 +48,58 @@ export function DataContextProvider(props) {
     })
     .then(()=>{
       alert("Empleado registrado con exito")
+      limpiarCampos()
     })
   }
 
+  // este metodo va a actualizar los datos de la base de datos
+  const update = () => {
+    Axios.put("http://localhost:3001/update",{
+      id,
+      nombres,
+      apellidos,
+      cedula,
+      provincia,
+      nacimiento,
+      email,
+      observaciones,
+      foto,
+      ingreso,
+      cargo,
+      departamento,
+      proviLab,
+      sueldo,
+      jornada,
+      observLab
+    })
+    .then(()=>{
+      getEmpleados()
+      alert("Empleado actualizado con éxito!")
+      limpiarCampos()
+    })
+  }
+
+  const limpiarCampos = () =>{
+    setNombre('')
+    setApellidos('')
+    setCedula(0)
+    setProvincia('')
+    setNacimiento('')
+    setEmail('')
+    setObserv('')
+    setFoto('')
+    setIngreso('')
+    setCargo('')
+    setDepar('')
+    setProviLab('')
+    setSueldo('')
+    setJornada('')
+    setObservLab('')
+
+    setEditar(false)
+  }
+
+  // este metodo va a traer los datos a editar para mostrarlos en el formulario
   const editarEmpleado = (val) => {
     setEditar(true)
     
@@ -87,8 +136,11 @@ export function DataContextProvider(props) {
     })
   }
 
+  // esta constante pasamos todos los datos del estado global
   const valor = {
     agregar,
+    update,
+    limpiarCampos,
     editarEmpleado,
     empleadosList,
     getEmpleados,
