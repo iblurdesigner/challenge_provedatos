@@ -26,6 +26,8 @@ export function DataContextProvider(props) {
   const [sueldo,setSueldo] = useState('')
   const [jornada,setJornada] = useState('')
   const [observLab,setObservLab] = useState('')
+  const [codigo,setCodigo] = useState('')
+  const [estado,setEstado] = useState('')
 
   // estado para el filtrado de empleados
   const [busqueda,setBusqueda] = useState('')
@@ -48,7 +50,9 @@ export function DataContextProvider(props) {
       proviLab,
       sueldo,
       jornada,
-      observLab
+      observLab,
+      codigo,
+      estado
     })
     .then(()=>{
       limpiarCampos()
@@ -86,7 +90,9 @@ export function DataContextProvider(props) {
       proviLab,
       sueldo,
       jornada,
-      observLab
+      observLab,
+      codigo,
+      estado
     })
     .then(()=>{
       getEmpleados()
@@ -157,6 +163,8 @@ export function DataContextProvider(props) {
     setSueldo('')
     setJornada('')
     setObservLab('')
+    setCodigo('')
+    setEstado('')
 
     setEditar(false)
   }
@@ -181,6 +189,8 @@ export function DataContextProvider(props) {
     setSueldo(val.sueldo)
     setJornada(val.jornada)
     setObservLab(val.observlab)
+    setCodigo(val.codigo)
+    setEstado(val.estado)
   }
 
   
@@ -206,7 +216,7 @@ export function DataContextProvider(props) {
     results = empleadosList
   }else{
     results = empleadosList.filter((val)=>{
-      if(val.nombres.toLowerCase().includes(busqueda.toLowerCase()) || val.apellidos.toLowerCase().includes(busqueda.toLowerCase()) || val.cedula.toString().includes(busqueda) ){
+      if(val.nombres.toLowerCase().includes(busqueda.toLowerCase()) || val.apellidos.toLowerCase().includes(busqueda.toLowerCase()) || val.cedula.toString().includes(busqueda) || val.codigo.toString().includes(busqueda) ){
         return val
       }
     })
@@ -224,7 +234,7 @@ export function DataContextProvider(props) {
     getEmpleados,
     setEmpleados,
     setNombre,
-    setApellidos,setCedula, setProvincia, setNacimiento, setEmail, setObserv, setFoto, setIngreso, setCargo, setDepar, setProviLab, setSueldo, setJornada, setObservLab,
+    setApellidos,setCedula, setProvincia, setNacimiento, setEmail, setObserv, setFoto, setIngreso, setCargo, setDepar, setProviLab, setSueldo, setJornada, setObservLab, setCodigo, setEstado,
     editar,
     setEditar,
     id,
@@ -245,7 +255,9 @@ export function DataContextProvider(props) {
     observLab,
     busqueda,
     setBusqueda,
-    results
+    results,
+    codigo,
+    estado
   }
   return (
     <DataListContext.Provider value={valor}>

@@ -7,8 +7,7 @@ import '../App.css'
 
 const ListaEmpleados = () => {
   // obtengo la lista de empleados desde el contexto
-  const {empleadosList, busqueda, setBusqueda, results} = useContext(DataListContext);
-
+  const {busqueda, setBusqueda, results} = useContext(DataListContext);
 
   return (
     <div className="py-4 mx-5">
@@ -34,6 +33,8 @@ const ListaEmpleados = () => {
               <th scope="col">Sueldo</th>
               <th scope="col">Jornada</th>
               <th scope="col">Observaciones Laborales</th>
+              <th scope="col">Codigo</th>
+              <th scope="col">Estado</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
@@ -56,6 +57,8 @@ const ListaEmpleados = () => {
                           <td>{empleado.sueldo}</td>
                           <td>{empleado.jornada}</td>
                           <td>{empleado.observlab}</td>
+                          <td>{empleado.codigo}</td>
+                          <td>{empleado.estado}</td>
                           <td><ButtonUpdate empleado={empleado} /></td>
                         </tr>
               })

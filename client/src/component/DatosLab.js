@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const DatosLab = () => {
-  const {getEmpleados, setNombre, setApellidos, setCargo, setCedula, setDepar, setEmail, setFoto, setIngreso, setJornada, setNacimiento, setObserv, setObservLab, setProvincia, setProviLab,setSueldo, agregar, nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,foto,ingreso,cargo,departamento,proviLab,sueldo,jornada,observLab, editar, update, limpiarCampos} = useContext(DataListContext);
+  const {getEmpleados, setNombre, setApellidos, setCargo, setCedula, setDepar, setEmail, setFoto, setIngreso, setJornada, setNacimiento, setObserv, setObservLab, setProvincia, setProviLab,setSueldo, agregar, nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,foto,ingreso,cargo,departamento,proviLab,sueldo,jornada,observLab, codigo, setCodigo, estado, setEstado, editar, update, limpiarCampos} = useContext(DataListContext);
 
   return (
     <Container className='py-4'>
@@ -139,6 +139,21 @@ const DatosLab = () => {
                       </label>
                     </div>
                   </div>
+                </div>
+
+                <div className='input-group mb-3'>
+                  <span className="input-group-text" id="basic-addon1">Codigo</span>
+                  <input type="text" name="codigo"
+                  className="form-control" placeholder="Ingrese un codigo de empleado" aria-label="codigo" aria-describedby="basic-addon1" value={codigo}
+                  onChange={(e) => setCodigo(e.target.value)}
+                  />
+
+                  <span className="input-group-text" id="basic-addon1">Estado</span>
+                  <input type="text" name="estado"
+                  className="form-control" placeholder="
+                  estado" aria-label="Estado" aria-describedby="basic-addon1" value={estado}
+                  onChange={(e) => setEstado(e.target.value)}
+                  />
                 </div>
 
 

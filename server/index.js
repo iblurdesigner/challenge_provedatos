@@ -32,8 +32,10 @@ app.post("/create", (req, res) => {
   const sueldo = req.body.sueldo;
   const jornada = req.body.jornada;
   const observlab = req.body.observLab;
+  const codigo = req.body.codigo;
+  const estado = req.body.estado;
 
-  db.query('INSERT INTO empleados(nombres,apellidos,cedula,provincia,f_nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab],
+  db.query('INSERT INTO empleados(nombres,apellidos,cedula,provincia,f_nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab,codigo,estado) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab,codigo,estado],
   (err, result) => {
     if (err) {
       console.log(err);
@@ -73,8 +75,10 @@ app.put("/update", (req, res) => {
   const sueldo = req.body.sueldo;
   const jornada = req.body.jornada;
   const observlab = req.body.observLab;
+  const codigo = req.body.codigo;
+  const estado = req.body.estado;
 
-  db.query('UPDATE empleados SET nombres = ?, apellidos = ?, cedula = ?, provincia = ?, f_nacimiento = ?, email = ?, observaciones = ?, url_foto = ?, ingreso = ?, cargo = ?, departamento = ?, provilab = ?, sueldo = ?, jornada = ?, observlab = ? WHERE id = ?', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab,id],
+  db.query('UPDATE empleados SET nombres = ?, apellidos = ?, cedula = ?, provincia = ?, f_nacimiento = ?, email = ?, observaciones = ?, url_foto = ?, ingreso = ?, cargo = ?, departamento = ?, provilab = ?, sueldo = ?, jornada = ?, observlab = ?, codigo = ?, estado = ? WHERE id = ?', [nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,url_foto,ingreso,cargo,departamento,provilab,sueldo,jornada,observlab,codigo,estado,id],
   (err, result) => {
     if (err) {
       console.log(err);
