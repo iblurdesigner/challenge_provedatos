@@ -1,13 +1,15 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DataListContext } from '../contexts/dataListContext';
-import { Table } from 'react-bootstrap';
+import {Table } from 'react-bootstrap';
 import ButtonUpdate from './ButtonUpdate';
 import Search from './Search';
 import '../App.css'
+import Paginacion from './Paginacion';
 
 const ListaEmpleados = () => {
   // obtengo la lista de empleados desde el contexto
-  const {busqueda, setBusqueda, results} = useContext(DataListContext);
+  const {busqueda, setBusqueda, results, currentPage, setCurrentPage, indexInicio,indexFinal, numPages} = useContext(DataListContext);
+
 
   return (
     <div className="py-4 mx-5">
@@ -15,8 +17,8 @@ const ListaEmpleados = () => {
       
       <Search busqueda={busqueda} setBusqueda={setBusqueda}/>
 
-      <Table responsive className="table table-striped table-hover shadow-lg">
-          <thead>
+      <Table responsive hover bordered size="sm" className="align-middle">
+          <thead className='table-dark'>
             <tr className='bg-title-table text-white'>
               <th scope="col">#</th>
               <th scope="col">Nombres</th>
@@ -40,7 +42,7 @@ const ListaEmpleados = () => {
           </thead>
           <tbody>
             {
-              results.map((empleado,key)=>{
+              results.slice(indexInicio,indexFinal).map((empleado,key)=>{
                 return <tr key={empleado.id}>
                           <th>{empleado.id}</th>
                           <td>{empleado.nombres}</td>
@@ -62,9 +64,10 @@ const ListaEmpleados = () => {
                           <td><ButtonUpdate empleado={empleado} /></td>
                         </tr>
               })
-            }          
+            }
         </tbody>
       </Table>
+      <Paginacion setCurrentPage={setCurrentPage} currentPage={currentPage} numPages={numPages} />
     </div>  
   )
 }

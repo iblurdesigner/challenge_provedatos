@@ -10,7 +10,7 @@ const Search = ({busqueda, setBusqueda}) => {
 
   return (
     <div className='my-4 text-right'>
-      <input value={busqueda} type="text" className="form-control border border-primary" placeholder="Buscar por nombre o por código de empleado..."
+      <input value={busqueda} type="text" className="form-control border border-primary shadow-lg" placeholder="Buscar por nombre o por código de empleado..."
         onChange={searcher}
       />
     </div>

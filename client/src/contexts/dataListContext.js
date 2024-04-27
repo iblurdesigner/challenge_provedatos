@@ -221,6 +221,17 @@ export function DataContextProvider(props) {
       }
     })
   }
+
+  // Paginacion
+  const dataQty = 3
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // calculo los indices de inicio y fin de la paginacion
+  const indexFinal = currentPage * dataQty;
+  const indexInicio = indexFinal - dataQty;
+
+  // numero de paginas totales
+  const numPages = Math.ceil(results.length / dataQty);
   
   
   // esta constante pasamos todos los datos del estado global
@@ -257,7 +268,12 @@ export function DataContextProvider(props) {
     setBusqueda,
     results,
     codigo,
-    estado
+    estado,
+    currentPage,
+    setCurrentPage,
+    indexFinal,
+    indexInicio,
+    numPages
   }
   return (
     <DataListContext.Provider value={valor}>
