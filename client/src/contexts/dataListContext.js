@@ -55,6 +55,13 @@ export function DataContextProvider(props) {
         icon: 'success',
         timer: 3000
       })
+    }).catch((error)=>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se logró registrar el empleado',
+        footer: JSON.parse(JSON.stringify(error)).message==="Network Error" ? "Intente más tarde" : JSON.parse(JSON.stringify(error)).message
+      })
     })
   }
 
@@ -87,7 +94,48 @@ export function DataContextProvider(props) {
         timer: 3000
       })
       limpiarCampos()
+    }).catch((error)=>{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se logró actualizar el empleado',
+        footer: JSON.parse(JSON.stringify(error)).message==="Network Error" ? "Intente más tarde" : JSON.parse(JSON.stringify(error)).message
+      })
     })
+  }
+
+  // con este metodo eliminamos
+  const deleteEmpleado = (id, nombres) => {
+    Swal.fire({
+      title: '<strong>Confimar la eliminación</strong>',
+      html:"<i>Realmente desea eliminar el empleado <strong>" + nombres + "</strong>?</i>",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar',
+    }).then(result => {
+      if(result.isConfirmed){
+        Axios.delete(`http://localhost:3001/delete/${id}`)
+        .then(()=>{
+          getEmpleados()
+          limpiarCampos()
+          Swal.fire(
+            'Eliminado!',
+            nombres + ' ha sido eliminado.',
+            'success'
+          )
+        }).catch((error)=>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se logró eliminar el empleado',
+            footer: JSON.parse(JSON.stringify(error)).message==="Network Error" ? "Intente más tarde" : JSON.parse(JSON.stringify(error)).message
+          })
+        })
+      }
+    })
+
   }
 
   const limpiarCampos = () =>{
@@ -151,6 +199,7 @@ export function DataContextProvider(props) {
   const valor = {
     agregar,
     update,
+    deleteEmpleado,
     limpiarCampos,
     editarEmpleado,
     empleadosList,
