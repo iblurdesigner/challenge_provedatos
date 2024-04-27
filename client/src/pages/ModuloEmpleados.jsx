@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { DataListContext } from '../contexts/dataListContext';
 import {Table } from 'react-bootstrap';
-import ButtonUpdate from './ButtonUpdate';
-import Search from './Search';
+import ButtonUpdate from '../component/ButtonUpdate';
+import Search from '../component/Search';
 import '../App.css'
-import Paginacion from './Paginacion';
+import Paginacion from '../component/Paginacion';
+import { Link } from 'react-router-dom';
 
-const ListaEmpleados = () => {
+const ModuloEmpleados = () => {
   // obtengo la lista de empleados desde el contexto
   const {busqueda, setBusqueda, results, currentPage, setCurrentPage, indexInicio,indexFinal, numPages} = useContext(DataListContext);
 
@@ -23,18 +24,6 @@ const ListaEmpleados = () => {
               <th scope="col">#</th>
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
-              <th scope="col">Cédula</th>
-              <th scope="col">Provincia</th>
-              <th scope="col">Fecha de Nacimiento</th>
-              <th scope="col">E-mail</th>
-              <th scope="col">Observaciones Personales</th>
-              <th scope="col">Fecha de Ingreso</th>
-              <th scope="col">Cargo</th>
-              <th scope="col">Departamento</th>
-              <th scope="col">Provincia laboral</th>
-              <th scope="col">Sueldo</th>
-              <th scope="col">Jornada</th>
-              <th scope="col">Observaciones Laborales</th>
               <th scope="col">Codigo</th>
               <th scope="col">Estado</th>
               <th scope="col">Acciones</th>
@@ -47,18 +36,6 @@ const ListaEmpleados = () => {
                           <th>{empleado.id}</th>
                           <td>{empleado.nombres}</td>
                           <td>{empleado.apellidos}</td>
-                          <td>{empleado.cedula}</td>
-                          <td>{empleado.provincia}</td>
-                          <td>{empleado.f_nacimiento}</td>
-                          <td>{empleado.email}</td>
-                          <td>{empleado.observaciones}</td>
-                          <td>{empleado.ingreso}</td>
-                          <td>{empleado.cargo}</td>
-                          <td>{empleado.departamento}</td>
-                          <td>{empleado.provilab}</td>
-                          <td>{empleado.sueldo}</td>
-                          <td>{empleado.jornada}</td>
-                          <td>{empleado.observlab}</td>
                           <td>{empleado.codigo}</td>
                           <td>{empleado.estado}</td>
                           <td><ButtonUpdate empleado={empleado} /></td>
@@ -68,8 +45,24 @@ const ListaEmpleados = () => {
         </tbody>
       </Table>
       <Paginacion setCurrentPage={setCurrentPage} currentPage={currentPage} numPages={numPages} />
+
+      <div className='d-flex justify-content-center border-top'>
+        <Link to='/form' editar={false}>
+          <button className='btn btn-success px-4 py-2 mt-4 mx-4'>
+            Crear
+          </button>
+        </Link>
+
+        <Link to='/reporte'>
+          <button className='btn btn-warning px-4 py-2 mt-4 mx-4'>
+            Reporte
+          </button>
+        </Link>
+      </div>
+
+
     </div>  
   )
 }
 
-export default ListaEmpleados
+export default ModuloEmpleados

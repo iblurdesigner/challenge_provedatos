@@ -1,14 +1,8 @@
 import './App.css';
-import DatosLab from './component/DatosLab';
-import ListaEmpleados from './component/ListaEmpleados';
+import Router from './router';
 
 function App() {
-  return (
-    <>
-      <DatosLab />
-      <ListaEmpleados />
-    </>
-  )
+  return <Router />
 }
 
 export default App;

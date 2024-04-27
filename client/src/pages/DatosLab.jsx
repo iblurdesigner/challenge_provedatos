@@ -1,11 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { DataListContext } from '../contexts/dataListContext';
 import {Container, Tabs, Tab} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 
 const DatosLab = () => {
-  const {getEmpleados, setNombre, setApellidos, setCargo, setCedula, setDepar, setEmail, setFoto, setIngreso, setJornada, setNacimiento, setObserv, setObservLab, setProvincia, setProviLab,setSueldo, agregar, nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,foto,ingreso,cargo,departamento,proviLab,sueldo,jornada,observLab, codigo, setCodigo, estado, setEstado, editar, update, limpiarCampos} = useContext(DataListContext);
+  const {setNombre, setApellidos, setCargo, setCedula, setDepar, setEmail, setFoto, setIngreso, setJornada, setNacimiento, setObserv, setObservLab, setProvincia, setProviLab,setSueldo, agregar, nombres,apellidos,cedula,provincia,nacimiento,email,observaciones,foto,ingreso,cargo,departamento,proviLab,sueldo,jornada,observLab, codigo, setCodigo, estado, setEstado, editar, update, limpiarCampos} = useContext(DataListContext);
+
+
 
   return (
     <Container className='py-4'>
@@ -175,9 +178,18 @@ const DatosLab = () => {
                 <button className='btn btn-warning' onClick={update}>Actualizar</button>
                 <button className='btn btn-info m-4' onClick={limpiarCampos}>Cancelar</button>
               </>
-                : <button className='btn btn-success' onClick={agregar}>Guardar</button> 
+                : <button className='btn btn-success' onClick={agregar}>Guardar</button>
             }
-            <button className='btn btn-secondary m-4' onClick={getEmpleados}>Reporte</button>
+            <Link to='/reporte'>
+              <button className='btn btn-warning px-4 py-2 mx-4'>
+                Reporte
+              </button>
+            </Link>
+            <Link to='/'>
+              <button className='btn btn-danger px-4 py-2'>
+                Salir
+              </button>
+            </Link>
           </div>
 
         </div>

@@ -193,6 +193,10 @@ export function DataContextProvider(props) {
     setEstado(val.estado)
   }
 
+  const crear = () => {
+    setEditar(false)
+  }
+
   
   // metodo para hacer la consulta sql de los empleados
   const getEmpleados = () => {
@@ -273,7 +277,8 @@ export function DataContextProvider(props) {
     setCurrentPage,
     indexFinal,
     indexInicio,
-    numPages
+    numPages,
+    crear
   }
   return (
     <DataListContext.Provider value={valor}>
