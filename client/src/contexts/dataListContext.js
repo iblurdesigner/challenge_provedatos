@@ -27,6 +27,9 @@ export function DataContextProvider(props) {
   const [jornada,setJornada] = useState('')
   const [observLab,setObservLab] = useState('')
 
+  // estado para el filtrado de empleados
+  const [busqueda,setBusqueda] = useState('')
+
 
   // este metodo va a enviar los datos a la base de datos
   const agregar = () => {
@@ -180,12 +183,6 @@ export function DataContextProvider(props) {
     setObservLab(val.observlab)
   }
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/empleados")
-    .then((response)=>{
-      setEmpleados(response.data)
-    })
-  }, [])
   
   // metodo para hacer la consulta sql de los empleados
   const getEmpleados = () => {
@@ -195,6 +192,27 @@ export function DataContextProvider(props) {
     })
   }
 
+
+  // este hook trae los datos en el primer render, desde el endpoint creado con node
+  useEffect(() => {
+    getEmpleados()
+  }, [])
+
+
+  // metodo de filtrado
+  let results = []
+
+  if(!busqueda){
+    results = empleadosList
+  }else{
+    results = empleadosList.filter((val)=>{
+      if(val.nombres.toLowerCase().includes(busqueda.toLowerCase()) || val.apellidos.toLowerCase().includes(busqueda.toLowerCase()) || val.cedula.toString().includes(busqueda) ){
+        return val
+      }
+    })
+  }
+  
+  
   // esta constante pasamos todos los datos del estado global
   const valor = {
     agregar,
@@ -224,7 +242,10 @@ export function DataContextProvider(props) {
     proviLab,
     sueldo,
     jornada,
-    observLab
+    observLab,
+    busqueda,
+    setBusqueda,
+    results
   }
   return (
     <DataListContext.Provider value={valor}>

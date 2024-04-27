@@ -2,17 +2,23 @@ import { useContext } from 'react';
 import { DataListContext } from '../contexts/dataListContext';
 import { Table } from 'react-bootstrap';
 import ButtonUpdate from './ButtonUpdate';
+import Search from './Search';
+import '../App.css'
 
 const ListaEmpleados = () => {
   // obtengo la lista de empleados desde el contexto
-  const {empleadosList} = useContext(DataListContext);
+  const {empleadosList, busqueda, setBusqueda, results} = useContext(DataListContext);
 
 
   return (
     <div className="py-4 mx-5">
-      <Table className="table table-striped">
+      <h1 className='bg-primary p-2 text-center text-white fs-5 fw-bold'>Modulo Empleados</h1>
+      
+      <Search busqueda={busqueda} setBusqueda={setBusqueda}/>
+
+      <Table responsive className="table table-striped table-hover shadow-lg">
           <thead>
-            <tr>
+            <tr className='bg-title-table text-white'>
               <th scope="col">#</th>
               <th scope="col">Nombres</th>
               <th scope="col">Apellidos</th>
@@ -33,7 +39,7 @@ const ListaEmpleados = () => {
           </thead>
           <tbody>
             {
-              empleadosList.map((empleado,key)=>{
+              results.map((empleado,key)=>{
                 return <tr key={empleado.id}>
                           <th>{empleado.id}</th>
                           <td>{empleado.nombres}</td>

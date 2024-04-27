@@ -10,7 +10,7 @@ const DatosLab = () => {
   return (
     <Container className='py-4'>
         <div className="card text-center">
-          <div className="card-header">
+          <div className="card-header bg-primary text-white fs-5 fw-bold">
             CREAR EMPLEADO NUEVO
           </div>
 
@@ -162,7 +162,7 @@ const DatosLab = () => {
               </>
                 : <button className='btn btn-success' onClick={agregar}>Guardar</button> 
             }
-            <button onClick={getEmpleados}>Reporte</button>
+            <button className='btn btn-secondary m-4' onClick={getEmpleados}>Reporte</button>
           </div>
 
         </div>
