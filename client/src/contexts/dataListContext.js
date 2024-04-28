@@ -227,7 +227,7 @@ export function DataContextProvider(props) {
   }
 
   // Paginacion
-  const dataQty = 3
+  const dataQty = 20
   const [currentPage, setCurrentPage] = useState(1);
 
   // calculo los indices de inicio y fin de la paginacion

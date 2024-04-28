@@ -40,16 +40,20 @@ const Reporte = () => {
           <tbody>
             {
               results.map((empleado,key)=>{
+                const naci = new Date(empleado.f_nacimiento)
+                const fnaci =naci.toLocaleDateString("es-MX")
+                const ingre = new Date(empleado.ingreso)
+                const fingreso = ingre.toLocaleDateString("es-MX")
                 return <tr key={empleado.id}>
                           <th>{empleado.id}</th>
                           <td>{empleado.nombres}</td>
                           <td>{empleado.apellidos}</td>
                           <td>{empleado.cedula}</td>
                           <td>{empleado.provincia}</td>
-                          <td>{empleado.f_nacimiento}</td>
+                          <td>{fnaci}</td>
                           <td>{empleado.email}</td>
                           <td>{empleado.observaciones}</td>
-                          <td>{empleado.ingreso}</td>
+                          <td>{fingreso}</td>
                           <td>{empleado.cargo}</td>
                           <td>{empleado.departamento}</td>
                           <td>{empleado.provilab}</td>
