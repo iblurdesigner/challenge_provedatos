@@ -10,7 +10,7 @@ const Reporte = () => {
     useEffect(() => {
       getEmpleados()
     }, [])
-
+    console.log(getEmpleados)
   return (
     <div className="py-4 mx-5">
       <h1 className='bg-primary p-2 text-center text-white fs-5 fw-bold'>Reporte</h1>
