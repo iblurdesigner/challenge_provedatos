@@ -1,0 +1,61 @@
+services:
+  mysqldb:
+    container_name: mysqldbcontainer
+    image: mysql_provedatos:v6
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    volumes:
+      - ./server/dbinit/init.sql:/docker-entrypoint-initdb.d/0_init.sql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: provedatosdb
+      MYSQL_ROOT_PASSWORD: null
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      SERVICE_NAME: mysqldb
+    networks:
+      - blurdevnet
+
+  nodeapp:
+    container_name: nodeappcontainer
+    working_dir: /server
+    image: nodeapp:v2
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3001:3001
+    expose:
+      - 3001  
+    environment:
+      DB_HOST: mysqldb
+      DB_USER: root
+      DB_NAME: provedatosdb
+      DB_PORT: 3306
+      SERVER_PORT: 3001doc
+    networks:
+      - blurdevnet
+    command: node index.js
+  
+  clientapp:
+    container_name: provecontainer
+    working_dir: /client
+    image: proveapp:v1
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    depends_on:
+      - mysqldb
+    networks:
+      - blurdevnet
+    command: npm start
+
+networks:
+  blurdevnet:
+    driver: bridge

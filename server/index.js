@@ -9,10 +9,10 @@ app.use(express.json());
 
 // se crea la conexion a la base de datos
 const db = mysql.createConnection({
-    host: "localhost",
+    host: "mysqldbcontainer",
     user: "root",
     password: "",
-    database: "empleados_provedatos"
+    database: "provedatosdb"
 })
 
 // se reciben los datos del formulario y se insertan en la base de datos
