@@ -1,7 +1,7 @@
 services:
   mysqldb:
     container_name: mysqldbcontainer
-    image: mysql_provedatos:v6
+    image: mysql_provedatos:v7
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     volumes:
@@ -34,7 +34,7 @@ services:
       DB_USER: root
       DB_NAME: provedatosdb
       DB_PORT: 3306
-      SERVER_PORT: 3001doc
+      SERVER_PORT: 3001
     networks:
       - blurdevnet
     command: node index.js
