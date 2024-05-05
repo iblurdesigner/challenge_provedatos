@@ -1,7 +1,7 @@
 services:
   mysqldb:
     container_name: mysqldbcontainer
-    image: mysql_provedatos:v7
+    image: blurdev/dbprovedatos:v2
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     volumes:
@@ -21,7 +21,7 @@ services:
   nodeapp:
     container_name: nodeappcontainer
     working_dir: /server
-    image: nodeapp:v2
+    image: blurdev/nodeprovedatos:v1
     volumes:
       - ./server:/usr/src/app
       - /usr/src/app/node_modules
@@ -42,7 +42,7 @@ services:
   clientapp:
     container_name: provecontainer
     working_dir: /client
-    image: proveapp:v1
+    image: blurdev/app-provedatos:v1
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
