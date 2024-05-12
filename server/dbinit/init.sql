@@ -1,4 +1,7 @@
 CREATE DATABASE IF NOT EXISTS provedatosdb;
+ALTER DATABASE provedatosdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE empleados CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 USE provedatosdb;
 DROP TABLE IF EXISTS empleados;	
 
@@ -24,10 +27,6 @@ CREATE TABLE empleados
 	estado varchar(100) NOT NULL,
 	PRIMARY KEY (id)
 );
-
-ALTER DATABASE provedatosdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-ALTER TABLE empleados CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 
 INSERT INTO `empleados` (`id`, `nombres`, `apellidos`, `cedula`, `provincia`, `f_nacimiento`, `email`, `observaciones`, `url_foto`, `ingreso`, `cargo`, `departamento`, `provilab`, `sueldo`, `jornada`, `observlab`, `codigo`, `estado`) VALUES
