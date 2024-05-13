@@ -1,3 +1,156 @@
+commit f5532b0710e395d5501368ef461b84c80d6de8ec
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 19:40:18 2024 -0500
+
+    adding docker volumes v1
+
+commit 95427004b8e09e819d349821443b2df5e36fc299
+Merge: b77d505 63c352b
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 18:55:34 2024 -0500
+
+    "merge from test"
+
+commit 63c352b6f50302b3370b725f8cf9cd5aa6a8fb4b
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 18:52:20 2024 -0500
+
+    adding docker volumes
+
+commit b77d5058c0e86b3e6a8be6c5e5c7dfb00234d612
+Merge: 746a8d1 4aacaf5
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 18:21:48 2024 -0500
+
+    fix main tildes database - mysql container v3
+
+commit 4aacaf5565157b30857ccc18f09c6aed42958cee
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 18:19:53 2024 -0500
+
+    fix tildes database - mysql container v3
+
+commit 746a8d14e3dbc1e40a3648e1e6bba22a3acf42ce
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 10:17:49 2024 -0500
+
+    little changes in docker compose v2
+
+commit f5e2869b6a5966249885cd3c69bad2298a4fddfa
+Merge: 982a196 7c36642
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 09:46:52 2024 -0500
+
+    little changes in docker compose and sql file
+
+commit 7c3664225ff11c9fed20144883c868e30a566ac4
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 12 09:38:29 2024 -0500
+
+    little changes in docker compose and sql file
+
+commit 982a196beef3c82f445af51bc1ee12de1fd64138
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 5 01:02:24 2024 -0500
+
+    rebuil mysql v2 docker hub
+
+commit bf59ed3512566737aad4b1fb9a970d5d7d17d498
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sun May 5 00:34:36 2024 -0500
+
+    rebuild docker image mysql
+
+commit 38cc5e08575c04bfeac945e64447a232bf83e5d9
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sat May 4 19:36:55 2024 -0500
+
+    docker images - docker compose
+
+commit ad42de08b7117672b6a30eec924cbd7cbb47043c
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sat Apr 27 20:47:28 2024 -0500
+
+    Arreglo del formato de fechas
+
+commit b303665061982133b4c56a40a569ac52f2a40979
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sat Apr 27 18:44:32 2024 -0500
+
+    Separacion en paginas
+
+commit 494fa7e8a929024b8fecd5f265b66655c448fe84
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Sat Apr 27 15:26:38 2024 -0500
+
+    Paginacion de la tabla modulo empleados
+
+commit f043486ea04b24c1b070c02c2519064590818e5c
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Fri Apr 26 23:27:37 2024 -0500
+
+    Se agrego la tabla Codigo y estado de empleado, se filtra por codigo
+
+commit a08f0b711044ff622a474e9449edd92134e9f38e
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Fri Apr 26 22:36:50 2024 -0500
+
+    Barra de busqueda de empleado por filtrado, tabla responsive
+
+commit 7c63164bca2d3e1b8638f63260ac3f8ac99517f1
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Fri Apr 26 19:07:44 2024 -0500
+
+    Manejo de errores en la funcion: agregar, editar, actualizar
+
+commit 752956a566b24595804c37e19d2aa0b559948a06
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Fri Apr 26 16:45:54 2024 -0500
+
+    Mensaje al usuario en la accion de editar, actualizar
+
+commit 1c4e949cc283475e977d39717c92e7abf6b5d6d8
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Fri Apr 26 09:38:21 2024 -0500
+
+    funciones en botones editar, actualizar y cancelar
+
+commit 87d8f5cbaa5d98279b6d7871fb65bbcd9799e1ae
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Thu Apr 25 22:37:54 2024 -0500
+
+    agregamos los botones de editar y eliminar - funcion editar v1
+
+commit dd8a4e098ddeb4a5806d1668195c665aae70b050
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Thu Apr 25 17:54:41 2024 -0500
+
+    agregamos un useEffect para que se guarde la lista en el estado global
+
+commit a2aafad0abc4f8312fd555a9f1286a425bbae410
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Thu Apr 25 12:26:05 2024 -0500
+
+    creamos un estado global para obtener los datos en diferentes componentes
+
+commit 224781e4842dc267eef2606149aafefdbc8ffeb8
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Wed Apr 24 23:11:49 2024 -0500
+
+    aumento de datos en la tabla empleados
+
+commit 6721cbb7ba03a1a726ca2e5c37a3561f004e9079
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Wed Apr 24 20:06:32 2024 -0500
+
+    arreglo de ciertos inputs en el front
+
+commit 231622833a7c3426abdf53ef9103c9035bbc74eb
+Author: iblurdesigner <nevomen@gmail.com>
+Date:   Tue Apr 23 22:35:51 2024 -0500
+
+    formulario ficha laboral v1
+
 commit dab4aa2307b38754c790f0b302a852a07b36aba4
 Author: iblurdesigner <nevomen@gmail.com>
 Date:   Tue Apr 23 20:48:42 2024 -0500
